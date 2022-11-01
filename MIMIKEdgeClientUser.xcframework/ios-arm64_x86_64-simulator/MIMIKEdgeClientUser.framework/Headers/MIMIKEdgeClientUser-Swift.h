@@ -223,25 +223,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @interface MIMIKEdgeClient (SWIFT_EXTENSION(MIMIKEdgeClientUser))
 @end
 
@@ -257,6 +238,24 @@ SWIFT_CLASS("_TtCE19MIMIKEdgeClientUserC19MIMIKEdgeClientCore15MIMIKEdgeClient11
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -520,25 +519,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @interface MIMIKEdgeClient (SWIFT_EXTENSION(MIMIKEdgeClientUser))
 @end
 
@@ -554,6 +534,24 @@ SWIFT_CLASS("_TtCE19MIMIKEdgeClientUserC19MIMIKEdgeClientCore15MIMIKEdgeClient11
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

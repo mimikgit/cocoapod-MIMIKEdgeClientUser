@@ -145,16 +145,6 @@ extension MIMIKEdgeClientCore.MIMIKEdgeClient {
 }
 extension MIMIKEdgeClientCore.MIMIKEdgeClient {
   public struct ProfileUser : Swift.Codable {
-    public enum Gender : Swift.String, Swift.Codable {
-      case male
-      case female
-      case other
-      public init?(rawValue: Swift.String)
-      public typealias RawValue = Swift.String
-      public var rawValue: Swift.String {
-        get
-      }
-    }
     public var _id: Swift.String?
     public var externalIds: [MIMIKEdgeClientCore.JSONValue]?
     public var email: Swift.String?
@@ -168,7 +158,7 @@ extension MIMIKEdgeClientCore.MIMIKEdgeClient {
     public var timeZone: Swift.String?
     public var address: MIMIKEdgeClientCore.MIMIKEdgeClient.Address?
     public var phoneNumber: Swift.String?
-    public var gender: MIMIKEdgeClientCore.MIMIKEdgeClient.ProfileUser.Gender?
+    public var gender: Swift.String?
     public var dateOfBirth: Foundation.Date?
     public var location: MIMIKEdgeClientCore.MIMIKEdgeClient.UserLocation?
     public var attributes: [MIMIKEdgeClientCore.MIMIKEdgeClient.UserItem]?
@@ -178,7 +168,7 @@ extension MIMIKEdgeClientCore.MIMIKEdgeClient {
     public var createdAt: Foundation.Date?
     public var updatedAt: Foundation.Date?
     public var appIds: [Swift.String]?
-    public init(_id: Swift.String?, externalIds: [MIMIKEdgeClientCore.JSONValue]?, email: Swift.String?, consents: [MIMIKEdgeClientCore.MIMIKEdgeClient.Consent]?, ssn: Swift.String?, name: MIMIKEdgeClientCore.MIMIKEdgeClient.Name?, displayName: Swift.String?, nickName: Swift.String?, preferredLanguage: Swift.String?, locale: Swift.String?, timeZone: Swift.String?, address: MIMIKEdgeClientCore.MIMIKEdgeClient.Address?, phoneNumber: Swift.String?, gender: MIMIKEdgeClientCore.MIMIKEdgeClient.ProfileUser.Gender?, dateOfBirth: Foundation.Date?, location: MIMIKEdgeClientCore.MIMIKEdgeClient.UserLocation?, attributes: [MIMIKEdgeClientCore.MIMIKEdgeClient.UserItem]?, references: [MIMIKEdgeClientCore.MIMIKEdgeClient.Reference]?, friendListId: Swift.String?, avatar: Swift.String?, createdAt: Foundation.Date?, updatedAt: Foundation.Date?, appIds: [Swift.String]?)
+    public init(_id: Swift.String?, externalIds: [MIMIKEdgeClientCore.JSONValue]?, email: Swift.String?, consents: [MIMIKEdgeClientCore.MIMIKEdgeClient.Consent]?, ssn: Swift.String?, name: MIMIKEdgeClientCore.MIMIKEdgeClient.Name?, displayName: Swift.String?, nickName: Swift.String?, preferredLanguage: Swift.String?, locale: Swift.String?, timeZone: Swift.String?, address: MIMIKEdgeClientCore.MIMIKEdgeClient.Address?, phoneNumber: Swift.String?, gender: Swift.String?, dateOfBirth: Foundation.Date?, location: MIMIKEdgeClientCore.MIMIKEdgeClient.UserLocation?, attributes: [MIMIKEdgeClientCore.MIMIKEdgeClient.UserItem]?, references: [MIMIKEdgeClientCore.MIMIKEdgeClient.Reference]?, friendListId: Swift.String?, avatar: Swift.String?, createdAt: Foundation.Date?, updatedAt: Foundation.Date?, appIds: [Swift.String]?)
     public enum CodingKeys : Swift.String, Swift.CodingKey {
       case _id
       case externalIds
@@ -270,6 +260,14 @@ extension MIMIKEdgeClientCore.MIMIKEdgeClient.Consent {
 }
 extension MIMIKEdgeClientCore.MIMIKEdgeClient.NewConsent {
   public func dictionary() -> [Swift.String : Any]?
+}
+extension Foundation.Formatter {
+  public static let iso8601DateOnly: Foundation.DateFormatter
+}
+extension Foundation.Date {
+  public var iso8601DateOnly: Swift.String {
+    get
+  }
 }
 extension MIMIKEdgeClientCore.MIMIKEdgeClient {
   public struct Consent : Swift.Codable {
@@ -426,8 +424,8 @@ extension MIMIKEdgeClientCore.MIMIKEdgeClient {
 }
 extension MIMIKEdgeClientCore.MIMIKEdgeClient {
   public struct UpdateSsn : Swift.Codable {
-    public var ssn: Swift.String?
-    public init(ssn: Swift.String?)
+    public var ssn: Swift.String
+    public init(ssn: Swift.String)
     public func encode(to encoder: Swift.Encoder) throws
     public init(from decoder: Swift.Decoder) throws
   }
@@ -731,16 +729,6 @@ extension MIMIKEdgeClientCore.MIMIKEdgeClient {
 }
 extension MIMIKEdgeClientCore.MIMIKEdgeClient {
   public struct UserUpdate : Swift.Codable {
-    public enum Gender : Swift.String, Swift.Codable {
-      case male
-      case female
-      case other
-      public init?(rawValue: Swift.String)
-      public typealias RawValue = Swift.String
-      public var rawValue: Swift.String {
-        get
-      }
-    }
     public var name: MIMIKEdgeClientCore.MIMIKEdgeClient.Name?
     public var displayName: Swift.String?
     public var nickName: Swift.String?
@@ -749,11 +737,11 @@ extension MIMIKEdgeClientCore.MIMIKEdgeClient {
     public var timeZone: Swift.String?
     public var address: MIMIKEdgeClientCore.MIMIKEdgeClient.Address?
     public var phoneNumber: Swift.String?
-    public var gender: MIMIKEdgeClientCore.MIMIKEdgeClient.UserUpdate.Gender?
     public var dateOfBirth: Swift.String?
+    public var gender: Swift.String?
     public var location: MIMIKEdgeClientCore.MIMIKEdgeClient.UserLocation?
     public var attributes: [MIMIKEdgeClientCore.MIMIKEdgeClient.UserItem]?
-    public init(name: MIMIKEdgeClientCore.MIMIKEdgeClient.Name?, displayName: Swift.String?, nickName: Swift.String?, preferredLanguage: Swift.String?, locale: Swift.String?, timeZone: Swift.String?, address: MIMIKEdgeClientCore.MIMIKEdgeClient.Address?, phoneNumber: Swift.String?, gender: MIMIKEdgeClientCore.MIMIKEdgeClient.UserUpdate.Gender?, dateOfBirth: Foundation.Date?, location: MIMIKEdgeClientCore.MIMIKEdgeClient.UserLocation?, attributes: [MIMIKEdgeClientCore.MIMIKEdgeClient.UserItem]?)
+    public init(name: MIMIKEdgeClientCore.MIMIKEdgeClient.Name?, displayName: Swift.String?, nickName: Swift.String?, preferredLanguage: Swift.String?, locale: Swift.String?, timeZone: Swift.String?, address: MIMIKEdgeClientCore.MIMIKEdgeClient.Address?, phoneNumber: Swift.String?, gender: Swift.String?, dateOfBirth: Foundation.Date?, location: MIMIKEdgeClientCore.MIMIKEdgeClient.UserLocation?, attributes: [MIMIKEdgeClientCore.MIMIKEdgeClient.UserItem]?)
     public func encode(to encoder: Swift.Encoder) throws
     public init(from decoder: Swift.Decoder) throws
   }
@@ -848,9 +836,6 @@ extension MIMIKEdgeClientCore.MIMIKEdgeClient.UserLocation.ModelType : Swift.Raw
 extension MIMIKEdgeClientCore.MIMIKEdgeClient.FriendRequestList.CodingKeys : Swift.Equatable {}
 extension MIMIKEdgeClientCore.MIMIKEdgeClient.FriendRequestList.CodingKeys : Swift.Hashable {}
 extension MIMIKEdgeClientCore.MIMIKEdgeClient.FriendRequestList.CodingKeys : Swift.RawRepresentable {}
-extension MIMIKEdgeClientCore.MIMIKEdgeClient.ProfileUser.Gender : Swift.Equatable {}
-extension MIMIKEdgeClientCore.MIMIKEdgeClient.ProfileUser.Gender : Swift.Hashable {}
-extension MIMIKEdgeClientCore.MIMIKEdgeClient.ProfileUser.Gender : Swift.RawRepresentable {}
 extension MIMIKEdgeClientCore.MIMIKEdgeClient.ProfileUser.CodingKeys : Swift.Equatable {}
 extension MIMIKEdgeClientCore.MIMIKEdgeClient.ProfileUser.CodingKeys : Swift.Hashable {}
 extension MIMIKEdgeClientCore.MIMIKEdgeClient.ProfileUser.CodingKeys : Swift.RawRepresentable {}
@@ -892,9 +877,6 @@ extension MIMIKEdgeClientCore.MIMIKEdgeClient.MIMIKFriendState : Swift.Hashable 
 extension MIMIKEdgeClientCore.MIMIKEdgeClient.RequestFriendList.CodingKeys : Swift.Equatable {}
 extension MIMIKEdgeClientCore.MIMIKEdgeClient.RequestFriendList.CodingKeys : Swift.Hashable {}
 extension MIMIKEdgeClientCore.MIMIKEdgeClient.RequestFriendList.CodingKeys : Swift.RawRepresentable {}
-extension MIMIKEdgeClientCore.MIMIKEdgeClient.UserUpdate.Gender : Swift.Equatable {}
-extension MIMIKEdgeClientCore.MIMIKEdgeClient.UserUpdate.Gender : Swift.Hashable {}
-extension MIMIKEdgeClientCore.MIMIKEdgeClient.UserUpdate.Gender : Swift.RawRepresentable {}
 extension MIMIKEdgeClientCore.MIMIKEdgeClient.Reference.CodingKeys : Swift.Equatable {}
 extension MIMIKEdgeClientCore.MIMIKEdgeClient.Reference.CodingKeys : Swift.Hashable {}
 extension MIMIKEdgeClientCore.MIMIKEdgeClient.Reference.CodingKeys : Swift.RawRepresentable {}
